@@ -7,6 +7,11 @@ public class Conta {
 
     public void realizarSaque(double valorSaque){
 
+        if (valorSaque > this.saldo) {
+            valorSaque = 0;
+            System.out.println("Insira um valor menor ou igual que: " + this.saldo);
+        }
+
         this.saldo -= valorSaque;
         System.out.println("Seu saldo atual é: " + this.saldo);
     }

@@ -16,9 +16,9 @@ public class Menu {
 
         while (continuar) {
 
-            System.out.println("/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
+            System.out.println("-------------------------------------------");
             System.out.println("/-/-/-/-/-/-/-/-/ Menu /-/-/-/-/-/-/-/-/-/-");
-            System.out.println("/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-");
+            System.out.println("-------------------------------------------");
             System.out.println("1 - Cadastrar Cliente");
             System.out.println("2 - Consultar Saldo");
             System.out.println("3 - Realizar Depósito");
@@ -37,15 +37,16 @@ public class Menu {
                     conta.consultarSaldo();
                     break;
                 case 3:
-                    System.out.println("Informe o valor do Depósito: ");
+                    System.out.print("Informe o valor do Depósito: ");
                     double deposito = scanner.nextDouble();
 
                     conta.realizarDeposito(deposito);
                     break;
                 case 4:
-                    System.out.println("Informe o valor do Saque: ");
-                    double saque = scanner.nextDouble();
+                    System.out.print("Informe o valor do Saque: ");
 
+                    double saque = scanner.nextDouble();
+                    
                     conta.realizarSaque(saque);
                     break;
                 case 5:
