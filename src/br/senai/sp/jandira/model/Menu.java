@@ -49,6 +49,8 @@ public class Menu {
                         Conta conta = new Conta();
                         conta.gerarConta(clienteTitular);
                         referenciaConta.adicionarConta(conta);
+
+                        System.out.println("Conta criada com sucesso");
                     }else {
                         System.out.println("Impossível encontrar o cliente informado. \nPor favor cadastre ou informe um usuário existente");
                     }
