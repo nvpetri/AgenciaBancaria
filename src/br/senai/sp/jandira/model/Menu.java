@@ -31,7 +31,7 @@ public class Menu {
 
             switch (userOption) {
                 case 1:
-                    cliente.cadastrarCliente();
+                    cliente.addCliente();
                     break;
                 case 2:
                     conta.consultarSaldo();

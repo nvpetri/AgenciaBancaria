@@ -1,33 +1,56 @@
 package br.senai.sp.jandira.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Cliente {
-    public String nome, endereco;
-    public long cpf, rg, telefone;
+    private String nome, endereco;
+    private long cpf, rg, telefone;
 
+    public List<Cliente> cliente = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
-    public void cadastrarCliente(){
+    public void addCliente(){
         System.out.println("/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/");
         System.out.println("/-/-/-/-/-/-/-Cadastro Cliente-/-/-/-/-/-/");
         System.out.println("/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/");
 
+        Cliente clientes = new Cliente();
+
         System.out.print("Informe seu nome: ");
-        nome = scanner.nextLine();
+        clientes.nome = scanner.nextLine();
 
         System.out.print("Informe seu endereço: ");
-        endereco = scanner.nextLine();
+        clientes.endereco = scanner.nextLine();
 
         System.out.print("Informe seu CPF: ");
-        cpf = scanner.nextLong();
+        clientes.cpf = scanner.nextLong();
 
         System.out.print("Informe seu RG: ");
-        rg = scanner.nextLong();
+        clientes.rg = scanner.nextLong();
 
         System.out.print("Informe seu telefone:");
-        telefone = scanner.nextLong();
+        clientes.telefone = scanner.nextLong();
+
+        cliente.add(clientes);
 
         System.out.println("-/-/-/-/-/-/-Cadastro finalizado-/-/-/-/-/-/");
+    }
+
+    public Cliente pesquisarCliente(long cpf){
+        for (Cliente cliente: cliente) {
+            long validaCpf = cliente.cpf;
+            if (validaCpf == cpf){
+                return cliente;
+            }
+        }
+        return null;
+    }
+    public void listarClientes(){
+        for (Cliente cliente: cliente) {
+            System.out.println(cliente.nome);
+            System.out.println(cliente.cpf);
+        }
     }
 }
