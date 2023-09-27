@@ -11,6 +11,10 @@ public class Cliente {
     public List<Cliente> cliente = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
+    public long getCpf() {
+        return cpf;
+    }
+
     public void addCliente(){
         System.out.println("/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/");
         System.out.println("/-/-/-/-/-/-/-Cadastro Cliente-/-/-/-/-/-/");
@@ -32,6 +36,8 @@ public class Cliente {
 
         System.out.print("Informe seu telefone:");
         clientes.telefone = scanner.nextLong();
+
+        scanner.nextLine();
 
         cliente.add(clientes);
 

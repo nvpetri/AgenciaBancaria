@@ -4,9 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Conta {
-    private String agencia;
+    private String agencia = "1234-xx";
     private int numeroConta;
-    private double saldo;
+    private double saldo = 0;
+
+    private Cliente cliente;
+
+
+    public void adicionarConta (Conta conta){
+        listContas.add(conta);
+    }
+    public void gerarConta(Cliente cliente){
+        numeroConta = (int) (Math.random()*10000);
+        this.cliente = cliente;
+    }
 
     public double getSaldo() {
         return saldo;
@@ -27,12 +38,12 @@ public class Conta {
     List<Conta> listContas = new ArrayList<>();
 
 
-    public Conta pesquisarConta(int numeroConta){
+    public Conta pesquisarConta(long cpf){
         for (Conta conta: listContas) {
 
-            int validaConta = conta.getNumeroConta();
+            long validaCpf = conta.cliente.getCpf();
 
-            if (validaConta == numeroConta){
+            if (validaCpf == cpf){
                 return conta;
             }
         }
