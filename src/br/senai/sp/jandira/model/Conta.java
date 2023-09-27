@@ -80,7 +80,4 @@ public class Conta {
         System.out.println("Seu saldo atual é :" + this.saldo);
     }
 
-    public void consultarSaldo(){
-        System.out.println("Seu saldo atual é :" + this.saldo);
-    }
 }

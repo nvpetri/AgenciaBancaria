@@ -41,12 +41,35 @@ public class Menu {
                     long cpfTitular = scanner.nextLong();
                     scanner.nextLine();
 
+                    Cliente clienteTitular = referenciaCliente.pesquisarCliente(cpfTitular);
+
+
+                    if (clienteTitular != null){
+                        Conta conta = new Conta();
+                        conta.gerarConta(clienteTitular);
+                        referenciaConta.adicionarConta(conta);
+                    }else {
+                        System.out.println("Impossível encontrar o cliente informado. \nPor favor cadastre ou informe um usuário existente");
+                    }
+
                     Conta conta = new Conta();
                     conta.gerarConta(referenciaCliente);
                     referenciaConta.adicionarConta(conta);
                     break;
                 case 3:
-                    referenciaConta.consultarSaldo();
+                    System.out.println("Informe o CPF do Titular: ");
+                    long cpFTitular = scanner.nextLong();
+                    scanner.nextLine();
+
+                    Conta contaPesquisada = referenciaConta.pesquisarConta(cpFTitular);
+
+                    if (contaPesquisada != null){
+                        double saldo = contaPesquisada.getSaldo();
+                        System.out.println("O saldo disponivel na sua conta é: " + saldo);
+                    }else {
+                        System.out.println("O usuário não possui conta cadastrada.");
+                    }
+
                     break;
                 case 4:
                     System.out.print("Informe o valor do Depósito: ");
