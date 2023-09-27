@@ -35,6 +35,7 @@ public class Menu {
                 case 1:
                     referenciaCliente.addCliente();
                     referenciaCliente.listarClientes();
+
                     break;
                 case 2:
                     System.out.println("Informe o CPF do Titular: ");
@@ -55,6 +56,7 @@ public class Menu {
                     Conta conta = new Conta();
                     conta.gerarConta(referenciaCliente);
                     referenciaConta.adicionarConta(conta);
+
                     break;
                 case 3:
                     System.out.println("Informe o CPF do Titular: ");
@@ -72,17 +74,38 @@ public class Menu {
 
                     break;
                 case 4:
-                    System.out.print("Informe o valor do Depósito: ");
-                    double deposito = scanner.nextDouble();
+                    System.out.println("Informe o CPF do Titular: ");
+                    long cpfDeposito = scanner.nextLong();
+                    scanner.nextLine();
 
-                    referenciaConta.realizarDeposito(deposito);
+                    Conta contaDeposito = referenciaConta.pesquisarConta(cpfDeposito);
+
+                    if (contaDeposito != null){
+                        System.out.println("Informe o valor para depósito: ");
+                        double valorDeposito = scanner.nextDouble();
+                        contaDeposito.realizarDeposito(valorDeposito);
+                    }else {
+                        System.out.println("O usuário não possui conta cadastrada.");
+                    }
+
                     break;
                 case 5:
-                    System.out.print("Informe o valor do Saque: ");
+                    System.out.println("Informe o CPF do Titular: ");
+                    long cpfSaque = scanner.nextLong();
+                    scanner.nextLine();
 
-                    double saque = scanner.nextDouble();
-                    
-                    referenciaConta.realizarSaque(saque);
+                    Conta contaSaque = referenciaConta.pesquisarConta(cpfSaque);
+
+                    if (contaSaque != null){
+                        System.out.println("Informe o valor para saque: ");
+                        double valorSaque = scanner.nextDouble();
+                        contaSaque.realizarSaque(valorSaque);
+                    }else {
+                        System.out.println("O usuário não possui conta cadastrada.");
+                    }
+                    break;
+                case 6:
+                    System.out.println("Feature in Development");
                     break;
                 case 7:
                     continuar = false;
