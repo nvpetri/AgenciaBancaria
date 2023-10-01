@@ -79,5 +79,15 @@ public class Conta {
         this.saldo += valorDeposito;
         System.out.println("Seu saldo atual é :" + this.saldo);
     }
+    public boolean realizarTransferencia(Conta contaDestino, double valorTransferencia) {
+        if (valorTransferencia <= saldo) {
+            realizarSaque(valorTransferencia);
+            contaDestino.realizarDeposito(valorTransferencia);
+            return true;
+        } else {
+            System.out.println("Saldo insuficiente para realizar a transferência.");
+            return false;
+        }
+    }
 
 }

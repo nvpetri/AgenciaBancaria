@@ -5,7 +5,7 @@ import br.senai.sp.jandira.model.Menu;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("//// ------ Bem vindo ao GuBank ------ ////");
+        System.out.println("//// ------ Bem vindo ao SenaiBank ------ ////");
 
         Menu menu = new Menu();
 

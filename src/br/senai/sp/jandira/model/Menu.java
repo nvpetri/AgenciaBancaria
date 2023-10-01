@@ -107,7 +107,32 @@ public class Menu {
                     }
                     break;
                 case 6:
-                    System.out.println("Feature in Development");
+                    System.out.println("Informe o CPF do Titular da conta de origem: ");
+                    long cpfOrigem = scanner.nextLong();
+                    scanner.nextLine();
+
+                    Conta contaOrigem = referenciaConta.pesquisarConta(cpfOrigem);
+
+                    if (contaOrigem != null) {
+                        System.out.println("Informe o CPF do Titular da conta de destino: ");
+                        long cpfDestino = scanner.nextLong();
+                        scanner.nextLine();
+
+                        Conta contaDestino = referenciaConta.pesquisarConta(cpfDestino);
+
+                        if (contaDestino != null) {
+                            System.out.println("Informe o valor para a transferência: ");
+                            double valorTransferencia = scanner.nextDouble();
+
+                            if (contaOrigem.realizarTransferencia(contaDestino, valorTransferencia)) {
+                                System.out.println("Transferência realizada com sucesso.");
+                            }
+                        } else {
+                            System.out.println("Conta de destino não encontrada.");
+                        }
+                    } else {
+                        System.out.println("Conta de origem não encontrada.");
+                    }
                     break;
                 case 7:
                     continuar = false;
